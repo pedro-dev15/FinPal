@@ -1,15 +1,24 @@
+// src/app.js
 import express from "express";
+import cors from "cors";
+import helmet from "helmet";
+import morgan from "morgan";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3001;
 
-// Middleware setup
 app.use(cors());
+app.use(helmet());
+app.use(morgan("combined"));
+app.use(express.json());
 
-// Routes setup
-app.use("/api", routes);
+app.get("/", (req, res) => {
+  res.json({ message: "FinPal API está funcionando!" });
+});
 
-//Listen port
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+  console.log(`🚀 Servidor rodando na porta ${PORT}`);
 });
