@@ -69,11 +69,10 @@ finpal-backend/
 │   ├── seeds/
 │   └── app.js
 ├── tests/
-│   ├── unit/
-│   ├── integration/
-│   └── fixtures/
+│    └── test-connection.js
 ├── .env
-├── .gitignore
+├── knexfile.js
+├── package-lock.json
 ├── package.json
 └── README.md
 ```
